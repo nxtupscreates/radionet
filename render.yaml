@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: radionet-rp
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: ADMIN_USERNAME
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: DATA_DIR
+        value: /app/data
+    disk:
+      name: radionet-data
+      mountPath: /app/data
+      sizeGB: 1
